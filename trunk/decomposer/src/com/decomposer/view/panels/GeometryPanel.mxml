@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--/* SVN FILE: $Id: GeometryPanel.mxml 11 2008-08-31 00:24:01Z gwoo%s45853.gridserver.com $ */
+/**
+ * Description
+ *
+ * DeComposer
+ * Copyright 2008, Sean Chatman and Garrett Woodworth
+ *
+ * Commercial License
+ * Redistributions of files prohibited
+ *
+ * @filesource
+ * @copyright		Copyright 2008, Sean Chatman and Garrett Woodworth
+ * @package			DeComposer
+ * @subpackage		com.DeComposer.view.panels
+ * @since			2008-03-06
+ * @version			$Revision: 11 $
+ * @modifiedby		$LastChangedBy: gwoo%s45853.gridserver.com $
+ * @lastmodified	$Date: 2008-08-30 17:24:01 -0700 (Sat, 30 Aug 2008) $
+ * @license			Commercial
+ */
+-->
+<GeometryPanelCtrl xmlns="com.DeComposer.controller.panels.*"
+	xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:containers="flexlib.containers.*">
+
+<containers:FlowBox width="100%" height="100%" backgroundColor="#333333" paddingLeft="5" paddingRight="5"
+	paddingTop="5" paddingBottom="5">
+
+	<mx:Button id="btn_circle" click="add('Circle')"
+		 skin="assets.skins.geometry.Circle" height="40" width="40"
+		 buttonMode="true" useHandCursor="true"/>
+
+	<mx:Button id="btn_ellipse" click="add('Ellipse')"
+		skin="assets.skins.geometry.Ellipse" height="40" width="40"
+		 buttonMode="true" useHandCursor="true"/>
+
+	<mx:Button id="btn_rectangle" click="add('Rectangle')"
+		 skin="assets.skins.geometry.Rectangle" height="40" width="40"
+		 buttonMode="true" useHandCursor="true"/>
+
+	<mx:Button id="btn_rounded_rectangle" click="add('RoundedRectangle')"
+		 skin="assets.skins.geometry.RoundedRectangle" height="40" width="40"
+		 buttonMode="true" useHandCursor="true"/>
+
+	<mx:Button id="btn_elliptic_arc" click="add('EllipticalArc')"
+		 skin="assets.skins.geometry.EllipticalArc" height="40" width="40"
+		 buttonMode="true" useHandCursor="true"/>
+
+<!--
+	<mx:Button id="btn_rounded_complex_rectangle" label="Rounded Complex Rectangle" click="add('RoundedComplexRectangle')"/>
+	<mx:Button id="btn_polygon" label="Polygon"/>
+	<mx:Button id="btn_horizontal_line" label="Horizontal Line"/>
+	<mx:Button id="btn_vertical_line" label="Vertical Line"/>
+	<mx:Button id="btn_line" label="Line"/>
+	<mx:Button id="btn_polyline" label="Polyline"/>
+-->
+
+
+</containers:FlowBox>
+
+</GeometryPanelCtrl>

@@ -1,0 +1,261 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+A set of Actionscript 3 utilities that enable the use of MVC for rapidly building rich internet applications within the Flex framework.
+
+= Overall Architecture =
+
+  * MVC
+  * FrontController
+  * ActiveRecord
+
+= Fake =
+
+== Main Concepts ==
+
+  * [http://en.wikipedia.org/wiki/Test-driven_development TDD Development]
+  * Environment
+  * Package
+  * Router
+  * Registry
+
+== Conventions ==
+
+  * MVC namespace structure
+    * <package_namespace>.model
+    * <package_namespace>.view
+    * <package_namespace>.controller
+  * Model names: singular (ex:User.as)
+  * Controller names: plural (ex:UsersController.as)
+  * View names: (ex: UserIndex.as, UserEdit.as)
+  * Form field names
+  * *Controllers and Views are directly related* (each View has one Controller)
+
+== Deploy ==
+
+  * Configuration
+    * config.xml
+    * Environment.as
+
+= Developer's Guide =
+
+== First Steps ==
+
+== Workflow ==
+
+Steps after calling a method from Model (such as User.add)
+
+_in Model.as_
+  # overload => creates the caller "users.add" (put together the controller name and the calling method)
+    * do not add parameters, such as users.view.1, it actually uses only POST (received in $this->data on Cake Controllers)
+    * to call using parameters, call method can be used, such as call("users.view.1", onView)
+  # call (Model)
+    # getDataSource
+    # addEventListener
+    # call (DataSource)
+      # executeCall (AmfDataSource) => prepares NetConnection to make the call
+
+*_Makes the call to CakePHP and waits for the answer_*
+
+  # onResult (Model) => receive the result inside the event
+    # ResultSet() (ResultSet) => capture the data and put them inside ResultSet (XML e String vao direto para data, no caso de outro formato, chama format())
+      * XML and String goes direct to "data" property
+      * others format are processed by format method
+      # format() and _format() => read the result and start mapping it to Flex by creating the needed Models
+        # Model.construct() => identifies which Model fits best to map the data
+
+== Classes ==
+
+=== Model ===
+
+  # Description and Purpose
+    * ActiveRecord implementation
+    * every Value Object should extend Model
+    * facilitates the access to CakePHP methods through "fake" methods that are mapped to work though cake-amf into CakePHP
+  # Properties
+  # Main Methods
+    * construct()
+    * call()
+    * vales can be accesses with ro e vo
+    * LIST ??? moveNext() ???
+  # Details
+    * considers "id" as primaryKey, unless you say otherwise
+    * the mechanics
+      # if you do user.find() it will call users/find
+      # you can do user.ro = {id: 1, username: "gwoo"
+      # user.ro will fill up the model with data
+      # and user.vo will give it back to you
+  # Code Samples
+    * Calling a CakePHP method from Fake
+{{{
+var modelName:ModelName = new ModelName;
+modelName.index(onIndex);
+
+class ModelName extends Model {}
+}}}
+    * Ways to link the model handler
+{{{
+var user:User = new User();
+user.add({username: 'gwoo'}, new function():void {
+   //handle result
+});
+       
+//or
+       
+user.add({username: 'gwoo'}, onAdd);
+       
+public function onAdd():void {
+}
+}}}
+
+=== ModelRegistry ===
+
+  # Description and Purpose
+    * Makes it possible to persist the model objects around the application
+  # Properties
+  # Main Methods
+  # Details
+  # Code Samples
+
+=== FieldCaptureAdapter ===
+
+  # Description and Purpose
+    * It grabs all the values from the form fields so you dont have User_email.text
+    * _*New Format*_: txti_User_email, cb_User_category
+  # Properties
+  # Main Methods
+    * captureSingleModel()
+    * captureMultipleModels()
+  # Details
+  # Code Samples
+
+=== Datasource ===
+
+  # Description and Purpose
+  # Properties
+  # Main Methods
+  # Details
+  # Code Samples
+
+=== ResultSet ===
+
+(IMPORTANT: Have a look at ResultSet test)
+
+  # Description and Purpose
+    * Results captured from CakePHP
+  # Properties
+    * data => when you have a single result (string, number, ...)
+    * dataSet => when you have a list (array) as a result
+  # Main Methods
+  # Details
+  # Code Samples
+
+=== FakeObject ===
+
+  # Description and Purpose
+  # Properties
+  # Main Methods
+  # Details
+  # Code Samples
+
+=== Controller ===
+
+  # Description and Purpose
+  # Properties
+  # Main Methods
+  # Details
+    * singleton
+    * contains all controller in "Object"
+  # Code Samples
+
+=== XYZController ===
+
+XYZ =  (Canvas, HBox, VBox, ...)
+
+=== ValidateAdapter ===
+
+  # Description and Purpose
+    * Provide low level validation on the client-side, saving the system of more service calls, avoiding uneeded resource alocation
+  # Properties
+  # Main Methods
+    * validateEmpty()
+    * validateEqual()
+    * validateEmail()
+  # Details
+  # Code Samples
+
+=== ObjectMap ===
+
+  # Description and Purpose
+    * Maps all kinds of object considering the given id for a fast access
+    * Works like a Global Registry
+    * Singleton
+  # Properties
+    * rootMap
+    * idMap
+  # Main Methods
+  # Details
+  # Code Samples
+    * Adding (Ways to add an Object to ObjectMap)
+{{{
+// Case 1
+btn.id = "testButton";
+objectMap.add(btn);
+
+// Case 2
+objectMap.testButton2 = btn2;
+}}}
+    * Accessing (based on the id)
+{{{
+// Basics
+objectMap.idMap["testButton"]
+
+objectMap.idMap["testButton2"]
+objectMap.testButton ???
+objectMap.findByID("testButton")
+
+// Find => ObjectMap.find() ???
+
+// Get objects by datatype (ex: get all Buttons registered in ObjectMap)
+var buttonMap:Object = objectMap.findMap(Button);
+}}}
+    * Removing
+{{{
+objectMap.remove(objectMap.testButton);
+}}}
+
+=== DescribeUtil ===
+
+  * definition() => obtem uma classe a partir de seu namespace (utiliza getDefinitionByName())
+
+=== SetUtil ===
+
+  # Description and Purpose
+    * Utility class for working with Arrays and Objects
+    * The idea is to provide missing utilities to manipulate objects and arrays in Flex, such as Cake Set class.
+  # Properties
+  # Main Methods
+    * diff()
+    * exists()
+    * merge()
+  # Details
+  # Code Samples
+
+=== Dispatcher ===
+
+  # Description and Purpose
+    * Global event dispatcher that we like using along with the FakeEvent which adds a data property
+  # Properties
+  # Main Methods
+  # Details
+  # Code Samples
+
+=== TraceUtil ===
+
+  # Description and Purpose
+    * TraceUtil is nice for debugging it will listen to events and tell you when they are called and from
+  # Properties
+  # Main Methods
+  # Details
+  # Code Samples

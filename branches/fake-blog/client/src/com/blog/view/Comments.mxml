@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CommentsCtrl xmlns="com.blog.controller.*" xmlns:mx="http://www.adobe.com/2006/mxml" width="400" height="300" xmlns:form="com.blog.view.form.*">
+	<mx:Script>
+		<![CDATA[
+			import com.blog.model.User;
+			import com.fake.controller.Action;
+		]]>
+	</mx:Script>
+	<mx:VBox width="100%">
+		<!-- If User is logged -->
+		<mx:Button label="Add Comment" click="addClick()" visible="{User.logged_id}"/>
+		<mx:Repeater id="comments" dataProvider="{list}" width="100%">
+			<mx:Box label="{comments.currentItem.id}" width="100%" backgroundColor="white" cornerRadius="10" borderStyle="solid">
+				<mx:Label text="{comments.currentItem.User.username}" fontWeight="bold"/>
+				<mx:HRule width="100%"/>
+				<mx:TextArea text="{comments.currentItem.body}" wordWrap="true" width="100%" borderStyle="none"/>
+			</mx:Box>
+		</mx:Repeater>
+	</mx:VBox>
+</CommentsCtrl>

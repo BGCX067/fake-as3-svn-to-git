@@ -1,0 +1,446 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../../../print.css" type="text/css" media="print">
+<meta content="Action,com.fake.utils.actions.Action,_actionMap,_properties,_targets,id,inGroup,actionMap,properties,target,targets,uid,clone,end,redo,restFormat,start,undo" name="keywords">
+<title>com.fake.utils.actions.Action</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'Action - Fake AS3';
+				var baseRef = '../../../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">Fake AS3</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../index-list.html')" href="../../../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../../../index.html?com/fake/utils/actions/Action.html&amp;com/fake/utils/actions/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;Action</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class Action"); titleBar_setSubNav(false,true,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">com.fake.utils.actions</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class Action</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Subclasses</td><td><a href="../actions/AddAction.html">AddAction</a>, <a href="../actions/DelegateAction.html">DelegateAction</a>, <a href="../actions/GroupAction.html">GroupAction</a>, <a href="../actions/MoveAction.html">MoveAction</a>, <a href="../actions/PropertyChangeAction.html">PropertyChangeAction</a>, <a href="../actions/RemoveAction.html">RemoveAction</a></td>
+</tr>
+</table>
+<p></p>
+<p></p>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#actionMap">actionMap</a> : Object<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#id">id</a> : String<div class="summaryTableDescription">
+   Unique identifier of the action.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#inGroup">inGroup</a> : Boolean = false<div class="summaryTableDescription">
+   If true, this will prevent the action from being inserted to the actionCursor
+   during the static end function.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#properties">properties</a> : Object<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#target">target</a> : Object<div class="summaryTableDescription">[read-only]
+   The first object in the targets array.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#targets">targets</a> : Array<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#uid">uid</a> : String<div class="summaryTableDescription">[static][read-only]
+   Creates a string of random numbers to be used as the id for actions.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+</table>
+</div>
+<a name="protectedPropertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Protected Properties</div>
+<table id="summaryTableProtectedProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#_actionMap">_actionMap</a> : Object<div class="summaryTableDescription">[static]
+   Storage of all actions by id.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#_properties">_properties</a> : Object<div class="summaryTableDescription">
+   General storage of variables.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#_targets">_targets</a> : Array<div class="summaryTableDescription">
+   All objects that are to be affected by the action.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#Action()">Action</a>(id:String = null, targets:Array = null)</div>
+<div class="summaryTableDescription">
+   Instantiated within the static start function of each action class.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#clone()">clone</a>(id:String = "", newID:String = "uid"):<a href="../actions/Action.html">Action</a>
+</div>
+<div class="summaryTableDescription">
+   
+   </div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#end()">end</a>():void</div>
+<div class="summaryTableDescription">
+   Abstract function to be overriden.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#redo()">redo</a>():void</div>
+<div class="summaryTableDescription">
+   Abstract function to be overriden.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#restFormat()">restFormat</a>(restArray:Array):Array</div>
+<div class="summaryTableDescription">[static]
+   Helper function to allow for both rest array parameter or one array parameter.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#start()">start</a>():void</div>
+<div class="summaryTableDescription">
+   Abstract function to be overriden.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#undo()">undo</a>():void</div>
+<div class="summaryTableDescription">
+   Abstract function to be overriden.</div>
+</td><td class="summaryTableOwnerCol">Action</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="_actionMap"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">_actionMap</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected static var _actionMap:Object</code><p>
+   Storage of all actions by id. 
+   </p></div>
+<a name="actionMap"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">actionMap</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>actionMap:Object</code>&nbsp;&nbsp;[read-write]<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get actionMap():Object</code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set actionMap(value:Object):void</code>
+<br>
+</div>
+<a name="id"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">id</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var id:String</code><p>
+   Unique identifier of the action. Used for storage in the static actionMap.
+   </p></div>
+<a name="inGroup"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">inGroup</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var inGroup:Boolean = false</code><p>
+   If true, this will prevent the action from being inserted to the actionCursor
+   during the static end function. The insert will be done during the end function
+   of the parent GroupAction.
+   </p></div>
+<a name="_properties"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">_properties</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var _properties:Object</code><p>
+   General storage of variables. 
+   </p></div>
+<a name="properties"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">properties</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>properties:Object</code>&nbsp;&nbsp;[read-write]<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get properties():Object</code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set properties(value:Object):void</code>
+<br>
+</div>
+<a name="target"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">target</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>target:Object</code>&nbsp;&nbsp;[read-only]<p>
+   The first object in the targets array. 
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get target():Object</code>
+<br>
+</div>
+<a name="_targets"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">_targets</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var _targets:Array</code><p>
+   All objects that are to be affected by the action. 
+   </p></div>
+<a name="targets"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">targets</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>targets:Array</code>&nbsp;&nbsp;[read-write]<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get targets():Array</code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set targets(value:Array):void</code>
+<br>
+</div>
+<a name="uid"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">uid</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>uid:String</code>&nbsp;&nbsp;[read-only]<p>
+   Creates a string of random numbers to be used as the id for actions.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get uid():String</code>
+<br>
+</div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="Action()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">Action</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function Action(id:String = null, targets:Array = null)</code><p>
+   Instantiated within the static start function of each action class.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">id</span>:String</code> (default = <code>null</code>)<code></code> &mdash; Used for storage in the static actionMap. If the string is "uid", a dynamic id will be inserted.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">targets</span>:Array</code> (default = <code>null</code>)<code></code> &mdash; Objects that are to be affected by the action.
+   </td>
+</tr>
+</table>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="clone()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">clone</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function clone(id:String = "", newID:String = "uid"):<a href="../actions/Action.html">Action</a></code><p>
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">id</span>:String</code> (default = "<code></code>")<code></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">newID</span>:String</code> (default = "<code>uid</code>")<code></code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../actions/Action.html">Action</a></code> &mdash; 
+                        Copy of the current action. This is not a deep copy but shares references.
+   
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="end()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">end</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function end():void</code><p>
+   Abstract function to be overriden. 
+   </p></div>
+<a name="redo()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">redo</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function redo():void</code><p>
+   Abstract function to be overriden. 
+   </p></div>
+<a name="restFormat()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">restFormat</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function restFormat(restArray:Array):Array</code><p>
+   Helper function to allow for both rest array parameter or one array parameter.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">restArray</span>:Array</code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Array</code></td>
+</tr>
+</table>
+</div>
+<a name="start()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">start</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function start():void</code><p>
+   Abstract function to be overriden. 
+   </p></div>
+<a name="undo()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">undo</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function undo():void</code><p>
+   Abstract function to be overriden. 
+   </p></div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->

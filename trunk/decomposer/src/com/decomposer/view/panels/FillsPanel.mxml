@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--/* SVN FILE: $Id: FillsPanel.mxml 17 2008-08-31 02:23:19Z gwoo%s45853.gridserver.com $ */
+/**
+ * Description
+ *
+ * DeComposer
+ * Copyright 2008, Sean Chatman and Garrett Woodworth
+ *
+ * Commercial License
+ * Redistributions of files prohibited
+ *
+ * @filesource
+ * @copyright		Copyright 2008, Sean Chatman and Garrett Woodworth
+ * @package			DeComposer
+ * @subpackage		com.DeComposer.view.panels
+ * @since			2008-03-06
+ * @version			$Revision: 17 $
+ * @modifiedby		$LastChangedBy: gwoo%s45853.gridserver.com $
+ * @lastmodified	$Date: 2008-08-30 19:23:19 -0700 (Sat, 30 Aug 2008) $
+ * @license			Commercial
+ */
+-->
+<FillsPanelCtrl xmlns="com.DeComposer.controller.panels.*" xmlns:mx="http://www.adobe.com/2006/mxml" 
+	xmlns:containers="flexlib.containers.*">
+
+	<containers:FlowBox width="100%" height="100%" backgroundColor="#333333" paddingLeft="5" paddingRight="5"
+		paddingTop="5" paddingBottom="5">
+
+		<mx:Button id="btn_solid" click="add('Solid')"
+			 skin="assets.skins.fills.Solid" height="40" width="40"
+			 buttonMode="true" useHandCursor="true"/>
+
+		<mx:Button id="btn_radial" click="add('RadialGradient')"
+			skin="assets.skins.fills.RadialGradient" height="40" width="40"
+			 buttonMode="true" useHandCursor="true"/>
+
+		<mx:Button id="btn_linear" click="add('LinearGradient')"
+			 skin="assets.skins.fills.LinearGradient" height="40" width="40"
+			 buttonMode="true" useHandCursor="true"/>
+			 
+		<mx:Button id="btn_bitmap" click="add('Bitmap')"
+			 skin="assets.skins.fills.Bitmap" height="40" width="40"
+			 buttonMode="true" useHandCursor="true"/>
+			 
+		<mx:Button id="btn_complex" click="add('Complex')"
+			 skin="assets.skins.fills.Complex" height="40" width="40"
+			 buttonMode="true" useHandCursor="true"/>	 		 
+
+	</containers:FlowBox>
+</FillsPanelCtrl>

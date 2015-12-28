@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Form xmlns="com.fake.view.helper.*" xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" height="100%" xmlns:form="com.fake.view.helper.form.*">
+	<mx:Script>
+		<![CDATA[
+			import com.blog.model.User;
+			
+			[Bindable] public var post_id:String;
+		]]>
+	</mx:Script>
+	<form:Label dataField="user_id" text="{User.logged_id}" visible="false"/>
+	<form:Label dataField="post_id" text="{post_id}" visible="false"/>
+	<mx:VBox>
+		<form:TextInput dataField="body"/>
+		<mx:Button label="Add" click="submit()"/>
+	</mx:VBox>
+</Form>

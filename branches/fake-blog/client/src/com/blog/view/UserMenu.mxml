@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" width="100%">
+	<mx:Script>
+		<![CDATA[
+			import com.blog.model.User;
+			import mx.controls.Alert;
+			import com.fake.utils.Dispatcher;
+			import com.fake.model.ResultSet;
+			import com.fake.controller.Action;
+			import com.blog.controller.PostsCtrl
+		
+			public function addPostClick():void
+			{
+				var ctrl:PostsCtrl = new PostsCtrl;
+				var action:Action = new Action('add',onAddPost);
+				ctrl.add(action);
+			}
+			
+			public function onAddPost(result:ResultSet):void
+			{
+				Dispatcher.dispatchEvent(new Event('Post.updated'));
+				Alert.show('Post added.');
+			}
+		]]>
+	</mx:Script>
+	<mx:Box width="100%" backgroundColor="white" cornerRadius="10" borderStyle="solid">
+		<mx:Label text="User Menu" fontWeight="bold"/>
+		<mx:HRule width="100%"/>
+		<mx:LinkButton label="Add Post" width="100%" textAlign="left" click="addPostClick()"/>
+	</mx:Box>
+	<mx:Box width="100%" backgroundColor="white" cornerRadius="10" borderStyle="solid" visible="{User.logged_user.admin}">
+		<mx:Label text="Admin Menu" fontWeight="bold"/>
+		<mx:HRule width="100%"/>
+		<mx:LinkButton label="List Users" width="100%" textAlign="left"/>
+		<mx:LinkButton label="List Tags" width="100%" textAlign="left"/>
+	</mx:Box>
+</mx:VBox>

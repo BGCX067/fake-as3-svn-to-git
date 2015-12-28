@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" width="100%">
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			import com.blog.model.User;
+			
+			[Bindable]
+			public var dataProvider:Object;
+		]]>
+	</mx:Script>
+	<mx:Canvas width="100%">
+		<mx:HBox horizontalAlign="left" width="100%">
+			<mx:Label text="{dataProvider.title} (by {dataProvider.User.username})" fontWeight="bold"/>
+		</mx:HBox>
+		<mx:HBox horizontalAlign="right" width="100%">
+			<mx:Button label="Edit" click="{parentDocument.editClick(dataProvider.id)}" visible="{User.logged_id==dataProvider.user_id}"/>
+		</mx:HBox>
+	</mx:Canvas>
+	<mx:HRule width="100%"/>
+	<mx:TextArea text="{dataProvider.body}" editable="false" wordWrap="true" width="100%" borderStyle="none"/>
+	<mx:Label text="Comments ({dataProvider.Comment.list.length})" click="{parentDocument.commentsClick(dataProvider.id)}" textDecoration="underline" fontWeight="bold"/>
+</mx:VBox>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/* SVN FILE: $Id: FakeRunner.mxml 191 2008-09-16 15:09:38Z gwoo.cakephp $ */
+/**
+ * Based on FlexUnit TestRunnerBase
+ *
+ * Fake Tests
+ * Copyright 2008, Sean Chatman and Garrett Woodworth
+ *
+ * Licensed under The MIT License
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @filesource
+ * @copyright		Copyright 2008, Sean Chatman and Garrett Woodworth
+ * @link			http://code.google.com/p/fake-as3/
+ * @package			fake-tests
+ * @subpackage		tests.lib
+ * @since			2008-03-06
+ * @version			$Revision: 191 $
+ * @modifiedby		$LastChangedBy: gwoo.cakephp $
+ * @lastmodified	$Date: 2008-09-16 22:09:38 +0700 (Tue, 16 Sep 2008) $
+ * @license			http://www.opensource.org/licenses/mit-license.php The MIT License
+ */
+ -->
+<FakeRunnerBase xmlns:mx="http://www.adobe.com/2006/mxml" xmlns="lib.*">
+
+	<mx:Canvas width="100%" height="100%">
+
+		<mx:Panel backgroundAlpha="0.2" title="Fake Test Runner" paddingTop="10" paddingBottom="10" paddingLeft="10" paddingRight="10" width="100%" height="100%">
+
+			<mx:HDividedBox width="100%" height="100%">
+
+				<mx:Tree width="40%" height="100%" id="treeTestCases" labelFunction="getLabel"/>
+
+				<mx:VBox width="100%" height="100%">
+
+					<mx:HBox width="100%" verticalAlign="bottom" paddingBottom="20" horizontalGap="20">
+						
+						<mx:Button id="btnRun" label="run" click="run()" fontSize="16"/>
+						
+						<mx:ProgressBar width="100%" trackHeight="6" fontSize="11" id="progressBar" labelPlacement="top" mode="manual" barColor="0x00ff00" visible="false"/>
+
+						<mx:HBox width="40%" horizontalAlign="right" horizontalGap="20">
+							<mx:Label id="runLabel" fontSize="14" />
+							<mx:Label id="errorsLabel" text="Errors: 0" fontSize="14"/>
+							<mx:Label id="failuresLabel" text="Failures: 0" fontSize="14"/>
+						</mx:HBox>
+
+					</mx:HBox>
+
+					<mx:VDividedBox width="100%" height="100%">
+
+					<mx:TabNavigator id="testTabs" change="onTestSelected()" width="100%"
+						height="40%" paddingBottom="0" paddingLeft="0" paddingRight="0"
+						paddingTop="0" creationPolicy="all">
+
+						<mx:Canvas label="All Tests" width="100%" height="100%">
+							<mx:List id="allTestsList" width="100%" height="100%" borderStyle="none"
+									 change="onTestSelected()" />
+						</mx:Canvas>
+
+						<mx:Canvas label="Failures" width="100%" height="100%">
+							<mx:List id="testFailures" width="100%" height="100%" borderStyle="none"
+									 change="onTestSelected()" />
+						</mx:Canvas>
+
+						<!--
+						<mx:Canvas label="Hierarchy" width="100%" height="100%">
+							<mx:Tree id="testHierarchy" width="100%" height="100%" borderStyle="none" />
+						</mx:Canvas>
+						-->
+					</mx:TabNavigator>
+
+					<mx:TabNavigator width="100%" height="100%" paddingBottom="0" paddingLeft="0" paddingRight="0"
+						paddingTop="0" creationPolicy="all">
+						<mx:Canvas label="Stack Trace" width="100%" height="100%">
+							<mx:TextArea id="stackTrace" width="100%" height="100%" borderStyle="none" wordWrap="false" />
+						</mx:Canvas>
+						<mx:Canvas label="Results" width="100%" height="100%">
+							<mx:Accordion id="console" width="100%" height="100%" />
+						</mx:Canvas>
+
+					</mx:TabNavigator>
+
+				</mx:VDividedBox>
+
+				</mx:VBox>
+
+			</mx:HDividedBox>
+		</mx:Panel>
+	</mx:Canvas>
+</FakeRunnerBase>

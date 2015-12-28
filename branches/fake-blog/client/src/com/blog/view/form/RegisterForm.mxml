@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Form xmlns="com.fake.view.helper.*" xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" height="100%" xmlns:form="com.fake.view.helper.form.*">
+	<mx:VBox>
+		<mx:Form>
+			<mx:FormItem label="Username">
+				<form:TextInput dataField="username" width="100%"/>
+			</mx:FormItem>
+			<mx:FormItem label="E-mail">
+				<form:TextInput dataField="email" width="100%"/>
+			</mx:FormItem>
+			<mx:FormItem label="Password">
+				<form:TextInput dataField="password" displayAsPassword="true" width="100%"/>
+			</mx:FormItem>
+			<mx:HBox width="100%" horizontalAlign="right">
+				<mx:Button label="Register" click="submit()"/>
+			</mx:HBox>
+		</mx:Form>
+	</mx:VBox>
+</Form>

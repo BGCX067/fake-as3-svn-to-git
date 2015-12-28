@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--/* SVN FILE: $Id: Bitmap.mxml 17 2008-08-31 02:23:19Z gwoo%s45853.gridserver.com $ */
+/**
+ * Description
+ *
+ * DeComposer
+ * Copyright 2008, Sean Chatman and Garrett Woodworth
+ *
+ * Commercial License
+ * Redistributions of files prohibited
+ *
+ * @filesource
+ * @copyright		Copyright 2008, Sean Chatman and Garrett Woodworth
+ * @package			DeComposer
+ * @subpackage		assets.skins.fills
+ * @since			2008-03-06
+ * @version			$Revision: 17 $
+ * @modifiedby		$LastChangedBy: gwoo%s45853.gridserver.com $
+ * @lastmodified	$Date: 2008-08-30 19:23:19 -0700 (Sat, 30 Aug 2008) $
+ * @license			Commercial
+ */
+-->
+<ButtonSkin xmlns="assets.skins.*" xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:geometry="com.degrafa.geometry.*" xmlns:paint="com.degrafa.paint.*">
+
+	<extra_fills>
+		<paint:SolidFill id="blue" color="#62ABCD" alpha="1"/>
+	</extra_fills>
+
+	<extra_geometry>
+		<geometry:Circle fill="{blue}" radius="14" centerX="{width/2}" centerY="{height/2}"/>
+	</extra_geometry>
+
+</ButtonSkin>

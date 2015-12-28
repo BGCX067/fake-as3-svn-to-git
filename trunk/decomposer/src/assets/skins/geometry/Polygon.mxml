@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--/* SVN FILE: $Id: Polygon.mxml 17 2008-08-31 02:23:19Z gwoo%s45853.gridserver.com $ */
+/**
+ * Description
+ *
+ * DeComposer
+ * Copyright 2008, Sean Chatman and Garrett Woodworth
+ *
+ * Commercial License
+ * Redistributions of files prohibited
+ *
+ * @filesource
+ * @copyright		Copyright 2008, Sean Chatman and Garrett Woodworth
+ * @package			DeComposer
+ * @subpackage		assets.skins.geometry
+ * @since			2008-03-06
+ * @version			$Revision: 17 $
+ * @modifiedby		$LastChangedBy: gwoo%s45853.gridserver.com $
+ * @lastmodified	$Date: 2008-08-30 19:23:19 -0700 (Sat, 30 Aug 2008) $
+ * @license			Commercial
+ */
+-->
+<ButtonSkin xmlns="assets.skins.*" xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:geometry="com.degrafa.geometry.*" xmlns:paint="com.degrafa.paint.*">
+
+	<extra_fills>
+		<paint:SolidFill id="blue" color="#62ABCD"/>
+	</extra_fills>
+
+	<extra_strokes>
+		<paint:SolidStroke id="white" color="#FFFFFF" alpha="1" weight="3"/>
+	</extra_strokes>
+
+	<extra_geometry>
+		<geometry:Polygon fill="{blue}" stroke="{white}">
+			<geometry:data>
+				-0.201, -108.65 24.134, -33.754 102.885, -33.754 39.174, 12.535 63.509,
+				87.431 -0.201,41.143 -63.912,87.431 -39.577,
+				12.535 -103.287, -33.754 -24.537, -33.754
+   		 	</geometry:data>
+		</geometry:Polygon>
+	</extra_geometry>
+
+</ButtonSkin>

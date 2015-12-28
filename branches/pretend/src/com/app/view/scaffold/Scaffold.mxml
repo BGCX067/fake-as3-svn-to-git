@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScaffoldCtrl xmlns="com.app.controller.*" xmlns:helper="com.app.view.helper.*" xmlns:mx="http://www.adobe.com/2006/mxml">
+
+	<mx:HBox width="100%" height="100%">
+
+		<mx:TabNavigator width="800" height="600" id="tabs" horizontalAlign="right">
+
+			<mx:Canvas label="list" width="100%" height="100%">
+				<mx:DataGrid id="grid" height="90%">
+
+				</mx:DataGrid>
+			</mx:Canvas>
+
+			<mx:Canvas label="submit" width="100%" height="100%">
+				<mx:VBox paddingLeft="100">
+					<helper:FormHelper id="form" visible="false">
+
+					</helper:FormHelper>
+
+					<mx:HBox paddingLeft="100">
+						<mx:Button id="btnSubmit" label="Submit">
+
+						</mx:Button>
+						<mx:Button id="btnReset" label="Reset">
+
+						</mx:Button>
+					</mx:HBox>
+
+				</mx:VBox>
+			</mx:Canvas>
+
+		</mx:TabNavigator>
+
+		<mx:DataGrid id="properties" height="600" x="177" y="10">
+
+		</mx:DataGrid>
+		 <mx:Text color="#0000ee">
+				<mx:htmlText>
+					<![CDATA[
+						<u><a href="#/scaffolds/list">goto the list</a></u>
+					]]>
+				</mx:htmlText>
+		</mx:Text>
+	</mx:HBox>
+
+</ScaffoldCtrl>

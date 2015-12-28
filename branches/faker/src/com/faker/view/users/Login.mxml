@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--/* SVN FILE: $Id: Login.mxml 147 2008-08-27 14:22:45Z gwoo.cakephp $ */-->
+<LoginCtrl xmlns="com.faker.controller.users.*" xmlns:mx="http://www.adobe.com/2006/mxml">
+	<mx:Form>
+		<mx:FormHeading label="Login" />
+		<mx:FormItem label="Email">
+			<mx:TextInput id="User_email" />
+		</mx:FormItem>
+		<mx:FormItem label="Password">
+			<mx:TextInput id="User_password" />
+		</mx:FormItem>
+		<mx:Button label="Submit" useHandCursor="true" buttonMode="true" click="submit()" />
+	</mx:Form>
+</LoginCtrl>

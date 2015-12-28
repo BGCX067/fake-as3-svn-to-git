@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Form xmlns="com.fake.view.helper.*" xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" height="100%" xmlns:form="com.fake.view.helper.form.*">
+	<mx:Script>
+		<![CDATA[
+			import com.blog.model.User;
+		]]>
+	</mx:Script>
+	<form:Label dataField="user_id" text="{User.logged_id}" visible="false"/>
+	<mx:VBox>
+		<mx:Form>
+			<mx:FormItem label="Title">
+				<form:TextInput dataField="title" width="100%"/>
+			</mx:FormItem>
+			<mx:FormItem label="Body">
+				<form:TextInput dataField="body" maxWidth="200" width="100%"/>
+			</mx:FormItem>
+			<mx:HBox width="100%" horizontalAlign="right">
+				<mx:Button label="Save" click="submit()"/>
+			</mx:HBox>
+		</mx:Form>
+	</mx:VBox>
+</Form>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/* SVN FILE: $Id: Project.mxml 140 2008-08-20 03:27:52Z gwoo.cakephp $ */
+/**
+ * Description
+ *
+ * Fake
+ * Copyright 2008, Sean Chatman and Garrett Woodworth
+ *
+ * Licensed under The MIT License
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @filesource
+ * @copyright		Copyright 2008, Sean Chatman and Garrett Woodworth
+ * @link			http://code.google.com/p/fake-as3/
+ * @package			fake
+ * @subpackage		com.fake
+ * @since			2008-03-06
+ * @version			$Revision: 140 $
+ * @modifiedby		$LastChangedBy: gwoo.cakephp $
+ * @lastmodified	$Date: 2008-08-20 10:27:52 +0700 (Wed, 20 Aug 2008) $
+ * @license			http://www.opensource.org/licenses/mit-license.php The MIT License
+ */
+-->
+<ProjectCtrl xmlns="com.fakegen.controller.generators.*" xmlns:mx="http://www.adobe.com/2006/mxml">
+	
+	<mx:Form width="100%" height="100%" indicatorGap="0">
+		<mx:FormHeading label="Create the Project"/>
+		<mx:FormItem width="100%">
+			<mx:Label text="Name" />
+			<mx:TextInput id="txti_name" width="100%" />
+		</mx:FormItem>
+		<mx:FormItem width="100%">
+			<mx:Label text="Path" />
+			<mx:HBox width="100%">
+				<mx:TextInput id="txti_path" width="100%" />
+				<mx:Button label="Browse" click="browse()"
+					styleName="button" buttonMode="true" useHandCursor="true"/>
+			</mx:HBox>
+		</mx:FormItem>
+		<mx:FormItem paddingTop="10" direction="horizontal">
+			<mx:Button label="Submit" click="submit()"
+				styleName="button" buttonMode="true" useHandCursor="true"/>
+		</mx:FormItem>
+
+	</mx:Form>
+	
+</ProjectCtrl>

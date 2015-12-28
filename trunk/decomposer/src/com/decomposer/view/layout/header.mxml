@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--/* SVN FILE: $Id: header.mxml 8 2008-08-28 01:33:34Z gwoo%s45853.gridserver.com $ */
+/**
+ * Description
+ *
+ * DeComposer
+ * Copyright 2008, Sean Chatman and Garrett Woodworth
+ *
+ * Commercial License
+ * Redistributions of files prohibited
+ *
+ * @filesource
+ * @copyright		Copyright 2008, Sean Chatman and Garrett Woodworth
+ * @package			DeComposer
+ * @subpackage		com.DeComposer.view.layout
+ * @since			2008-03-06
+ * @version			$Revision: 8 $
+ * @modifiedby		$LastChangedBy: gwoo%s45853.gridserver.com $
+ * @lastmodified	$Date: 2008-08-27 18:33:34 -0700 (Wed, 27 Aug 2008) $
+ * @license			Commercial
+ */
+-->
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" backgroundColor="#f4f4f4">
+
+<mx:Label text="DeComposer" styleName="logo" height="20" />
+
+<mx:MenuBar styleName="mainMenu" labelField="@label" showRoot="true" height="20" width="100%">
+	<mx:dataProvider>
+		<mx:XMLList>
+			<menuitem label="" />
+			<menuitem label="" />
+			<menuitem label="File">
+			    <menuitem label="New" data="New"/>
+			    <menuitem label="Open" data="Open"/>
+			    <menuitem label="Save" data="Save"/>
+			    <menuitem label="Exit" data="Exit"/>
+			</menuitem>
+			<menuitem label="Edit">
+			    <menuitem label="Cut" data="Cut"/>
+			    <menuitem label="Copy" data="Copy"/>
+			    <menuitem label="Paste" data="Paste"/>
+			</menuitem>
+			<menuitem label="Panels">
+			    <menuitem label="Code" data="Code"/>
+			    <menuitem label="Fills" data="Fills"/>
+			    <menuitem label="Fill Editor" data="FillEditor"/>
+			    <menuitem label="Color" data="Color"/>
+			    <menuitem label="Tools" data="Tools"/>
+			    <menuitem label="Properties" data="Properties"/>
+			    <menuitem label="Stroke" data="Stroke"/>
+			    <menuitem label="Structure" data="Structure"/>
+			</menuitem>
+		</mx:XMLList>
+	</mx:dataProvider>
+</mx:MenuBar>
+
+</mx:Canvas>

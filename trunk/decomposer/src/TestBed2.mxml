@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--/* SVN FILE: $Id: TestBed2.mxml 29 2008-10-14 21:39:04Z xpoint%playerb.net $ */
+/**
+ * Description
+ *
+ * DeComposer
+ * Copyright 2008, Sean Chatman and Garrett Woodworth
+ *
+ * Commercial License
+ * Redistributions of files prohibited
+ *
+ * @filesource
+ * @copyright		Copyright 2008, Sean Chatman and Garrett Woodworth
+ * @package			DeComposer
+ * @since			2008-03-06
+ * @version			$Revision: 29 $
+ * @modifiedby		$LastChangedBy: xpoint%playerb.net $
+ * @lastmodified	$Date: 2008-10-14 14:39:04 -0700 (Tue, 14 Oct 2008) $
+ * @license			Commercial
+ */
+-->
+<app:AppCtrl xmlns:mx="http://www.adobe.com/2006/mxml" 
+	preinitialize="init()" layout="absolute"
+	backgroundColor="#FFFFFF"
+	xmlns:panels="com.DeComposer.view.panels.*"
+	xmlns:app="com.DeComposer.controller.*" 
+	width="800" height="700" 
+	xmlns:utils="com.DeComposer.utils.*" 
+	xmlns:objecthandles="com.roguedevelopment.objecthandles.*" 
+	xmlns="http://www.degrafa.com/2008">
+	<mx:Script>
+		<![CDATA[
+			import mx.core.UIComponent;
+			
+			import com.degrafa.geometry.*;
+			import com.degrafa.GeometryComposition;
+			import com.degrafa.paint.*;
+			import com.degrafa.core.*;
+			import com.degrafa.paint.*;
+			import com.degrafa.core.collections.DegrafaCollection;
+			
+			import com.darronschall.serialization.ObjectTranslator;
+			
+			import com.fake.utils.*;
+			
+			import flash.utils.describeType;
+			import mx.rpc.xml.SimpleXMLDecoder;
+			
+			import com.DeComposer.model.FileMO;
+			import com.DeComposer.utils.*;
+			
+			protected function init():void
+			{
+				//trace(path1.data);
+			}
+			
+			public function get parser():Parser {
+				return Parser.instance;
+			}
+			
+			public function render():void
+			{
+				clear();
+				
+				parser.parseRootXML(txtSource.text);
+				
+				for each(var geo:Geometry in objectMap.find(Geometry))
+				{
+					trace(geo.id);
+					var gUnit:GeoUnit = new GeoUnit(geo);
+					objectMap.add(gUnit);
+					addChild(gUnit);
+				}
+			}
+			
+			public function clear():void
+			{
+				objectMap.clear()
+				
+				for each(var uic:UIComponent in getChildren())
+				{
+					if(uic is GeoUnit)
+						removeChild(uic);
+				}
+			}
+			
+			public function output():void
+			{
+				for each(var obj:Object in objectMap.find(IGraphicsFill))
+				{
+					txtOutput.text += Parser.instance.renderMXML(obj)+"\n";
+				}
+				for each(var gUnit:GeoUnit in objectMap.find(GeoUnit))
+				{
+					txtOutput.text += gUnit.toMXML()+"\n";
+				}
+			}
+		]]>
+	</mx:Script>
+	<mx:Button label="render" right="0" top="0" click="render()"/>
+	<mx:Button label="clear" right="0" top="25" click="clear()"/>
+	<mx:Button label="output" right="0" top="50" click="output()"/>
+	<mx:TabNavigator bottom="0" creationPolicy="all" width="100%">
+		<mx:ViewStack label="input">
+		<mx:Canvas width="100%">
+			<mx:TextArea id="txtSource" height="300" width="100%">
+		<mx:text><![CDATA[<SolidFill id="aqua" color="aqua"/>
+<SolidFill id="chartreuse" color="chartreuse"/>
+<SolidFill id="mintcream" color="mintcream"/>
+<SolidFill id="fuchsia" color="fuchsia"/>
+<SolidFill id="gold" color="gold"/>
+<SolidFill id="peru" color="peru"/>
+
+<Circle fill="{aqua}" radius="20"/>
+<Circle fill="{chartreuse}" radius="20" centerX="50"/>
+<Circle fill="{mintcream}" radius="20" centerX="100"/>
+<Circle fill="{fuchsia}" radius="20" centerX="150"/>
+<Circle fill="{gold}" radius="20" centerX="200"/>
+<Circle fill="{peru}" radius="20" centerX="250"/>]]></mx:text>
+	</mx:TextArea>
+	</mx:Canvas>
+		</mx:ViewStack>
+		<mx:ViewStack label="out">
+			<mx:Canvas width="100%">
+				<mx:TextArea id="txtOutput" width="100%" height="300"/>
+			</mx:Canvas>
+		</mx:ViewStack>
+	</mx:TabNavigator>
+</app:AppCtrl>

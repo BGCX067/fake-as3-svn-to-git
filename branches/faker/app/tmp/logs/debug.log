@@ -1,0 +1,5 @@
+2008-08-27 06:29:58 Notice: Notice (8): Undefined index:  username in [/Volumes/Home/htdocs/cake/repo/branches/1.2.x.x/cake/libs/controller/components/auth.php, line 303]
+2008-08-27 06:29:59 Notice: Notice (8): Undefined index:  username in [/Volumes/Home/htdocs/cake/repo/branches/1.2.x.x/cake/libs/controller/components/auth.php, line 303]
+2008-08-27 06:30:01 Notice: Notice (8): Undefined index:  username in [/Volumes/Home/htdocs/cake/repo/branches/1.2.x.x/cake/libs/controller/components/auth.php, line 303]
+2008-08-27 06:30:02 Notice: Notice (8): Undefined index:  username in [/Volumes/Home/htdocs/cake/repo/branches/1.2.x.x/cake/libs/controller/components/auth.php, line 303]
+2008-08-27 06:32:16 Notice: Notice (8): Undefined variable: headers in [APP/plugins/amf/views/amf.php, line 169]

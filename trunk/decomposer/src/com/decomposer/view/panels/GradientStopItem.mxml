@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:degrafa="http://www.degrafa.com/2008"
+	creationComplete="init()">
+	<mx:Metadata> 
+        [Event(name="close", type="flash.events.Event")] 
+    </mx:Metadata> 
+	<mx:Script>
+		<![CDATA[
+			import mx.events.SliderEvent;
+			import mx.events.FlexEvent;
+			import mx.events.ColorPickerEvent;
+			import mx.core.UIComponent;
+			import com.fake.utils.actions.*;
+			import mx.events.PropertyChangeEvent;
+			import com.degrafa.paint.GradientStop;
+		
+			[Bindable] public var _gradientStop:GradientStop = new GradientStop();
+			
+			public function get gradientStop():GradientStop {
+				return _gradientStop;
+			}
+			
+			public function set gradientStop(value:GradientStop):void {
+				this.visible = true;
+				this.includeInLayout = true;
+				_gradientStop = value;
+			}
+			
+			public function init():void
+			{
+				PropertyChangeAction.eventHelper(alphaSlider, SliderEvent.THUMB_PRESS, SliderEvent.THUMB_RELEASE, ["alpha"], _gradientStop);
+				PropertyChangeAction.eventHelper(ratioSlider, SliderEvent.THUMB_PRESS, SliderEvent.THUMB_RELEASE, ["ratio"], _gradientStop);
+			
+				PropertyChangeAction.eventHelper(colorPicker, MouseEvent.MOUSE_DOWN, ColorPickerEvent.CHANGE, ["color"], _gradientStop);
+			}
+			
+			
+		]]>
+	</mx:Script>
+	
+	<mx:Label text="alpha" x="40" y="26"/>
+	<mx:Label text="ratio" x="40" y="10"/>
+	<mx:HSlider id="alphaSlider"  value="{_gradientStop.alpha}"  change="_gradientStop.alpha = alphaSlider.value"
+		minimum="0" maximum="1" liveDragging="true" tickLength="0" tickOffset="0" tickThickness="0" width="50" x="78" y="30"/>
+	
+	<mx:ColorPicker id="colorPicker" selectedColor="{uint(_gradientStop.color)}" valueCommit="_gradientStop.color = colorPicker.selectedColor"
+		 x="10" y="15"/>
+	
+	<mx:HSlider id="ratioSlider"  value="{_gradientStop.ratio}" change="_gradientStop.ratio = ratioSlider.value"
+		minimum="0" maximum="1" liveDragging="true" tickLength="0" tickOffset="0" tickThickness="0" width="50" x="78" y="13"/>
+	<mx:CheckBox x="197" y="8" selected="false" click="this.dispatchEvent(new Event('close'))"/>
+</mx:Canvas>

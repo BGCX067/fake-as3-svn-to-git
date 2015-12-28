@@ -1,0 +1,17 @@
+Label.logo {
+	font-family: Verdana;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+MenuBar.mainMenu {
+	borderColor: #ffffff;
+	font-family: Verdana;
+	font-size: 12px;
+}
+
+HSlider.gridSlider {
+	tickOffset:	0;
+	tickLength:	0;
+	tickThickness: 0;
+}

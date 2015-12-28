@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fk:Fake xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:fk="com.fake.*"
+	layout="absolute" 
+	xmlns:s="com.app.view.scaffold.*"
+	xmlns:app="com.app.*" xmlns:utils="com.fake.utils.*"
+	>
+
+<!-- SVN FILE: $Id: pretend.mxml 55 2008-03-31 17:48:07Z gwoo.cakephp $ -->
+<!--
+/**
+ * Description
+ *
+ * Pretend
+ * Copyright 2008, Sean Chatman and Garrett Woodworth
+ *
+ * Licensed under The MIT License
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @filesource
+ * @copyright		Copyright 2008, Sean Chatman and Garrett Woodworth
+ * @link			http://code.google.com/p/fake-as3/
+ * @package			pretend
+ * @subpackage		com
+ * @since			2008-03-06
+ * @version			$Revision: 55 $
+ * @modifiedby		$LastChangedBy: gwoo.cakephp $
+ * @lastmodified	$Date: 2008-04-01 00:48:07 +0700 (Tue, 01 Apr 2008) $
+ * @license			http://www.opensource.org/licenses/mit-license.php The MIT License
+ */
+ -->
+ 	<app:Environment/>
+ 	<app:Routes/>
+		 
+	<s:Scaffold id="scaffold" modelName="Post"/>
+	
+</fk:Fake>

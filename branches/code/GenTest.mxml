@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="http://www.adobe.com/2006/mxml" 
+	layout="absolute"
+	creationComplete="init()">
+	<mx:Script>
+		<![CDATA[
+			import flexunit.framework.TestSuite;
+			import flexunit.framework.TestCase;
+			import com.fake.utils.FakeFactory;
+			import template.GetSetTemplate;
+			import template.TemplateUtil;
+			import mx.events.ResizeEvent;
+			import flash.utils.describeType;
+			import mx.controls.Button;
+			import generation.*;
+			
+			public function init():void
+			{
+				/* var pack:PackageShell = PackageShell.quickPackage("so.darn.quick", 
+				"AlphaBetaTest", 
+				Method.quickMethod("oneTime"),
+				new Variable("oneVar")); */
+				
+				/* var pack:PackageShell = PackageShell.quickPackage("sean.candace.test", "SeanChatman");
+				
+				pack.classShell.extend = new Type(MovieClip);
+				
+				var ass:Accessor = new Accessor("coolStuff", new Type(Button));
+				var ass2:Accessor = new Accessor("alotOf", new Type(ResizeEvent));
+				
+				pack.classShell.children = [new Variable("testThis"),
+				new Variable("testThat", new Type(MouseEvent)), 
+				ass.privateVar, 
+				ass.getMethod, 
+				ass.setMethod, 
+				ass2.privateVar, 
+				ass2.getMethod, 
+				ass2.setMethod]
+				
+				
+				trace(pack.toCodeString().value);  */
+				
+				/* regTest();
+				
+				regReplace(); */
+				
+				//var fac:FakeFactory = new FakeFactory(PackageShell, "tests.utils", ClassShell.quickClass("CloneUtilTest"));
+				//var testPack:PackageShell = fac.newInstance();
+				
+				var testConstructor:Method = new Method("CloneUtilTest", Type.BLANK, [new Parameter("methodName", Type.STRING), new Parameter("test", Type.OBJECT)]); 
+				
+				var testShell:ClassShell = new ClassShell(testConstructor.name, testConstructor);
+				testShell.extend = TestCase;
+				
+				var suite:Method = new Method("suite", TestSuite)
+				suite.isStatic = true;
+				
+				var ts:Variable = new Variable("testSuite", TestSuite);
+				
+				suite.addChild(ts.toBodyCodeString(true));
+				suite.addChild(CodeString.SPACER);
+				suite.addChild(ts.name + ".addTest(new " + testConstructor.name + "( \"testPackages\" ));");
+				suite.addChild(CodeString.SPACER);
+				suite.addChild("return " + ts.name + ";");
+				
+				testShell.addChild(suite);
+				
+				var testPack:PackageShell = PackageShell.quickPackage("test.utils", testShell);
+				testPack.imports = [new Type(TestSuite)]
+				
+				
+				
+				trace(testPack.toString());
+				
+/* 
+	public static function suite():TestSuite {
+	var ts:TestSuite = new TestSuite();
+	
+	ts.addTest(new ConfigManagerTest( "testPackages" ));
+	
+	return ts;
+} */
+			}
+			
+			public function regTest():void
+			{
+				trace(TemplateUtil.findVars(GetSetTemplate.text.toString()).toString());
+			}
+			
+			public function regReplace():void
+			{
+				var txt:String = GetSetTemplate.text.toString();
+				
+				for each(var rpl:String in ["testThis", "testThat", "coolStuff"])
+				{
+					txt = TemplateUtil.replaceRegex(txt, rpl, rpl+"123".toString());
+				}
+				
+				trace(txt);
+			}
+		]]>
+	</mx:Script>
+	
+</mx:WindowedApplication>

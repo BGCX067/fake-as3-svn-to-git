@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--/* SVN FILE: $Id: config.xml 224 2008-11-11 17:40:42Z gwoo.cakephp $ */-->
+<configuration>
+	<environment id="local" />
+</configuration>

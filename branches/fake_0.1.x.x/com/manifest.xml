@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- /* SVN FILE: $Id: manifest.xml 86 2008-04-11 01:13:38Z gwoo.cakephp $ */-->
+<componentPackage>
+	<component id="Controller" class="com.fake.controller.Controller"/>
+	<component id="DataSet" class="com.fake.model.DataSet"/>
+	<component id="Model" class="com.fake.model.Model"/>
+	<component id="ModelObject" class="com.fake.model.ModelObject"/>
+	<component id="ModelRegistry" class="com.fake.model.ModelRegistry"/>
+	<component id="ResultSet" class="com.fake.model.ResultSet"/>
+	<component id="AmfDataSource" class="com.fake.model.datasources.AmfDataSource"/>
+	<component id="ConnectionManager" class="com.fake.model.datasources.ConnectionManager"/>
+	<component id="DataSource" class="com.fake.model.datasources.DataSource"/>
+	<component id="HttpDataSource" class="com.fake.model.datasources.HttpDataSource"/>
+	<component id="ConfigManager" class="com.fake.utils.ConfigManager"/>
+	<component id="DescribeUtil" class="com.fake.utils.DescribeUtil"/>
+	<component id="Dispatcher" class="com.fake.utils.Dispatcher"/>
+	<component id="FakeEvent" class="com.fake.utils.FakeEvent"/>
+	<component id="Inflector" class="com.fake.utils.Inflector"/>
+	<component id="Router" class="com.fake.utils.Router"/>
+	<component id="Fake" class="com.fake.Fake"/>
+	<component id="FakeObject" class="com.fake.FakeObject"/>
+</componentPackage>

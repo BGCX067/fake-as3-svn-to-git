@@ -1,0 +1,6 @@
+<SolidFill id="lightblue" alpha="1" color="11393254"/>
+<SolidFill id="red" alpha="1" color="16711680"/>
+<SolidFill id="navy" alpha="1" color="128"/>
+<SolidFill id="green" alpha="1" color="32768"/>
+<SolidStroke id="black" alpha="1" caps="round" joints="round" miterLimit="3" scaleMode="normal" weight="1"/>
+<SolidStroke id="white" alpha="1" caps="round" color="16777215" joints="round" miterLimit="3" scaleMode="normal" weight="1"/>

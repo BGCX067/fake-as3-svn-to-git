@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?><!-- /* SVN FILE: $Id: Faker.mxml 148 2008-08-27 21:07:45Z gwoo.cakephp $*/-->
+<FakeApp xmlns="com.faker.*" xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" horizontalScrollPolicy="off" verticalScrollPolicy="off" xmlns:users="com.faker.view.users.*">
+
+	<mx:Style source="assets/styles/faker.css" />
+
+	<users:Login width="100%" height="100%" />
+
+</FakeApp>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--/* SVN FILE: $Id: ButtonSkin.mxml 18 2008-09-10 16:34:34Z xpoint%playerb.net $ */
+/**
+ * Description
+ *
+ * DeComposer
+ * Copyright 2008, Sean Chatman and Garrett Woodworth
+ *
+ * Commercial License
+ * Redistributions of files prohibited
+ *
+ * @filesource
+ * @copyright		Copyright 2008, Sean Chatman and Garrett Woodworth
+ * @package			DeComposer
+ * @subpackage		com.DeComposer.view.panels
+ * @since			2008-03-06
+ * @version			$Revision: 18 $
+ * @modifiedby		$LastChangedBy: xpoint%playerb.net $
+ * @lastmodified	$Date: 2008-09-10 09:34:34 -0700 (Wed, 10 Sep 2008) $
+ * @license			Commercial
+ */
+-->
+<GraphicBorderSkin xmlns="http://www.degrafa.com/2008" xmlns:mx="http://www.adobe.com/2006/mxml">
+
+	<mx:Script>
+	<![CDATA[
+		import com.degrafa.core.IGraphicsStroke;
+		import com.degrafa.core.IGraphicsFill;
+		import com.degrafa.IGeometry;
+
+		[Bindable]
+		public var extra_fills:Array;
+
+		[Bindable]
+		public var extra_strokes:Array;
+
+		[Bindable]
+		public var extra_geometry:Array;
+
+
+		[Bindable]
+		private var awidth:Number=0;
+
+		[Bindable]
+		private var aheight:Number=0;
+
+		override protected function updateDisplayList(unscaledWidth:Number, unscaledHeight:Number):void
+		{
+			super.updateDisplayList(unscaledWidth, unscaledHeight);
+			awidth = unscaledWidth;
+			aheight = unscaledHeight;
+
+			for each(var filler:IGraphicsFill in extra_fills)
+			{
+				fills.push(filler);
+			}
+
+			for each(var stroker:IGraphicsStroke in extra_strokes)
+			{
+				strokes.push(stroker);
+			}
+
+			for each(var geom:IGeometry in extra_geometry)
+			{
+				geometry.push(geom);
+			}
+		}
+
+	]]>
+	</mx:Script>
+
+	<fills>
+		<LinearGradientFill id="upFill" angle="90" >
+			<GradientStop ratio="0" alpha="1" color="#949494"/>
+			<GradientStop ratio="1" alpha="1" color="#333333"/>
+		</LinearGradientFill>
+
+		<LinearGradientFill id="overFill" angle="90" >
+			<GradientStop ratio="0" alpha="1" color="#949494"/>
+			<GradientStop ratio="1" alpha="1" color="#FFFFFF"/>
+		</LinearGradientFill>
+
+		<LinearGradientFill id="downFill" angle="-90" >
+			<GradientStop ratio="0" alpha="1" color="#949494"/>
+			<GradientStop ratio="1" alpha="1" color="#FFFFFF"/>
+		</LinearGradientFill>
+	</fills>
+
+	<strokes>
+		<SolidStroke id="buttonBorder" color="#CCCCCC" alpha="1" weight="2"/>
+	</strokes>
+
+	<geometry>
+		<GeometryComposition state="upSkin" >
+			<RoundedRectangleComplex fill="{upFill}" height="{aheight}" width="{awidth}" bottomLeftRadius="2"
+				bottomRightRadius="2" topLeftRadius="2" topRightRadius="2" stroke="{buttonBorder}" />
+		</GeometryComposition>
+
+		<GeometryComposition state="overSkin" >
+			<RoundedRectangleComplex fill="{overFill}" height="{aheight}" width="{awidth}" bottomLeftRadius="2"
+				bottomRightRadius="2" topLeftRadius="2" topRightRadius="2" stroke="{buttonBorder}" />
+		</GeometryComposition>
+
+		<GeometryComposition state="downSkin" >
+			<RoundedRectangleComplex fill="{downFill}" height="{aheight}" width="{awidth}" bottomLeftRadius="2"
+				bottomRightRadius="2" topLeftRadius="2" topRightRadius="2" stroke="{buttonBorder}" />
+		</GeometryComposition>
+
+	</geometry>
+</GraphicBorderSkin>

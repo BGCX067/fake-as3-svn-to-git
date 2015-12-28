@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UsersCtrl xmlns="com.blog.controller.*" xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" xmlns:helper="com.fake.view.helper.*" xmlns:form="com.fake.view.helper.form.*">
+	<mx:Script>
+		<![CDATA[
+			import com.blog.model.User;
+		]]>
+	</mx:Script>
+	<mx:Box width="100%" backgroundColor="white" cornerRadius="10" borderStyle="solid">
+		<mx:ViewStack selectedIndex="{User.logged_user?1:0}" width="100%" creationPolicy="all" height="80">
+			<mx:HBox width="100%" horizontalGap="30">
+				<mx:Button label="Login" click="loginClick(event)"/>
+				<mx:Button label="Register" click="registerClick(event)"/>
+			</mx:HBox>
+			<mx:VBox width="100%">
+				<mx:Label text="Username: {User.logged_user?User.logged_user.username:''}"/>
+				<mx:Label text="E-mail: {User.logged_user?User.logged_user.email:''}"/>
+				<mx:Button label="Logout" click="logoutClick(event)"/>
+			</mx:VBox>
+		</mx:ViewStack>
+		<!--
+		<helper:Form id="form" action="{login}" controller="{this}" dataName="{model.className}" width="100%">
+			<mx:FormItem label="Username">
+				<form:TextInput form="{form}" dataField="username" width="100%"/>
+			</mx:FormItem>
+			<mx:FormItem label="Password">
+				<form:TextInput form="{form}" dataField="password" displayAsPassword="true" width="100%"/>
+			</mx:FormItem>
+			<mx:HBox width="100%" horizontalAlign="right">
+				<mx:Button label="Login" click="{form.submit()}"/>
+				<mx:Button label="Register"/>
+			</mx:HBox>
+		</helper:Form>
+		-->
+	</mx:Box>
+</UsersCtrl>

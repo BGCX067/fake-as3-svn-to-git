@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ctrl:FillDesignerCtrl xmlns:mx="http://www.adobe.com/2006/mxml" 
+	xmlns:ctrl="com.DeComposer.controller.panels.*"
+	backgroundColor="#FFFFFF"
+	xmlns:panels="com.DeComposer.view.panels.*"
+	xmlns:app="com.DeComposer.controller.*" 
+	width="800" height="700" 
+	xmlns:utils="com.DeComposer.utils.*" 
+	xmlns:objecthandles="com.roguedevelopment.objecthandles.*" 
+	xmlns="http://www.degrafa.com/2008">
+	
+	<mx:Script>
+		<![CDATA[
+			import com.fake.utils.actions.ActionDirector;
+			
+			
+			
+			/* public function cbFillDelegate(action:DelegateAction):void {
+				update();
+			}
+			
+			public function click():void
+			{
+				var newStopper:GradientStopItem = new GradientStopItem();
+				
+				newStopper.addEventListener("close",remove);
+				
+				currentFill.gradientStopsCollection.addItem(newStopper.gradientStop);
+				
+				GroupAction.start("uid", 
+				AddAction.start("uid", stopBox, newStopper),
+				AddAction.start("uid", currentFill.gradientStopsCollection, newStopper.gradientStop));
+				
+				stopBox.addChild(newStopper);
+				
+				GroupAction.end();
+			}
+			
+			public function remove(event:Event):void
+			{
+				var gsi:GradientStopItem = event.currentTarget as GradientStopItem;
+				
+				GroupAction.start("uid", 
+				RemoveAction.start("uid", stopBox, gsi),
+				RemoveAction.start("uid", currentFill.gradientStopsCollection, gsi.gradientStop));
+				
+				currentFill.gradientStopsCollection.removeItem(gsi.gradientStop);
+				
+				stopBox.removeChild(gsi);
+				
+				GroupAction.end();
+			}
+			
+			public function save():void
+			{
+				var newFill:Object = CloneUtil.clone(currentFill);
+				
+				newFill.id = txti_saveID.text;
+				
+				objectMap.add(newFill);
+				
+				var t:Array = objectMap.IGraphicsFill
+			}
+			
+			public function update():void
+			{
+				objectMap.selectedFill = cbFill.selectedItem;
+				
+				stopBox.removeAllChildren();
+				
+				circle.fill = IGraphicsFill(currentFill);
+				
+				for each(var stop:GradientStop in currentFill.gradientStops)
+				{
+					var newStopper:GradientStopItem = new GradientStopItem();
+					
+					newStopper.addEventListener("close",remove);
+					
+					newStopper.gradientStop = stop;
+					
+					stopBox.addChild(newStopper);
+				}
+				
+				ActionDirector.clear();
+			} */
+		]]>
+	</mx:Script>
+	
+	<mx:VBox id="vbox">
+		<mx:HBox >
+			<mx:Button label="undo" click="ActionDirector.undoAction()"/>
+			<mx:Button label="redo" click="ActionDirector.redoAction()"/>
+			<mx:ComboBox id="cbFill" labelField="id" dataProvider="{objectMap.IGraphicsFill}" close="update()"/>
+			<mx:ComboBox id="cbStroke" labelField="id" dataProvider="{objectMap.IGraphicsStroke}" close="update()"/>
+		</mx:HBox>
+		<mx:HBox>
+			<mx:TextInput id="txti_saveID"/>
+			<mx:Button label="save" click="save()"/>
+		</mx:HBox>
+		<mx:HBox>
+			<mx:TextInput id="txti_rename"/>
+			<mx:Button label="rename" click="objectMap.rename(currentFill, txti_rename.text);"/>
+		</mx:HBox>
+		<Surface height="200" width="200" click="click()">
+			<GeometryGroup>
+				<Circle id="circle" centerX="{circle.radius}" centerY="{circle.radius}" radius="100" 
+					fill="{IGraphicsFill(currentFill)}"/>
+			</GeometryGroup>
+		</Surface>
+		<mx:VBox id="stopBox"/>
+		
+	
+	<mx:Text text="{cbFill.selectedItem.id}"/>
+	
+	<mx:Form>
+		<mx:FormItem label="angle">
+			<mx:HSlider id="angleSlider"  value="{cbFill.selectedItem.angle}"  change="cbFill.selectedItem.angle = angleSlider.value"
+			minimum="0" maximum="359" liveDragging="true" tickLength="0" tickOffset="0" tickThickness="0" width="50" x="78" y="30"/>
+		</mx:FormItem>
+		<mx:FormItem label="focalPointRatio">
+			<mx:NumericStepper id="ns_focalPointRatio" value="{cbFill.selectedItem.focalPointRatio}"/>
+		</mx:FormItem>
+		<mx:FormItem label="interpolation">
+			<mx:ComboBox id="cb_interpolationMethod" dataProvider="{['rgb','linearRGB']}" change="cbFill.selectedItem.interpolationMethod = cb_interpolationMethod.selectedLabel"/>	
+		</mx:FormItem>
+		<mx:FormItem label="blendMode">
+			<mx:TextInput id="txti_blendMode" text="{cbFill.selectedItem.blendMode}"/>		
+		</mx:FormItem>
+	</mx:Form>
+	
+	<mx:HBox>
+		<mx:Label text="spreadMethod"/>
+	<mx:ComboBox id="cb_spreadMethod" dataProvider="{['pad','reflect','repeat']}" 
+		change="cbFill.selectedItem.spreadMethod = cb_spreadMethod.selectedLabel; if(cb_spreadMethod.selectedLabel != 'pad') frm_radial.visible = true; else frm_radial.visible = false;"/>
+	</mx:HBox>
+	
+	<mx:Form id="frm_radial" label="radial" visible="false">
+		<mx:FormItem label="cx">
+			<mx:NumericStepper id="ns_cx" maximum="9999" value="{cbFill.selectedItem.cx}" change="cbFill.selectedItem.cx = ns_cx.value"/>
+		</mx:FormItem>
+		<mx:FormItem label="cy">
+			<mx:NumericStepper id="ns_cy" maximum="9999" value="{cbFill.selectedItem.cy}" change="cbFill.selectedItem.cy = ns_cy.value"/>
+		</mx:FormItem>
+		<mx:FormItem label="radius">
+			<mx:NumericStepper id="ns_radius" maximum="9999" value="{cbFill.selectedItem.radius}" change="cbFill.selectedItem.radius = ns_radius.value"/>
+		</mx:FormItem>
+		<mx:FormItem label="radiusX">
+			<mx:NumericStepper id="ns_radiusX" maximum="9999" value="{cbFill.selectedItem.radiusX}" change="cbFill.selectedItem.radiusX = ns_radiusX.value"/>
+		</mx:FormItem>
+		<mx:FormItem label="radiusY">
+			<mx:NumericStepper id="ns_radiusY" maximum="9999" value="{cbFill.selectedItem.radiusY}" change="cbFill.selectedItem.radiusY = ns_radiusY.value"/>
+		</mx:FormItem>
+	</mx:Form>
+	
+	<mx:Form id="frm_linear" label="linear">
+		<mx:FormItem label="x">
+			<mx:NumericStepper id="ns_x" maximum="9999" value="{cbFill.selectedItem.x}" change="cbFill.selectedItem.x = ns_x.value"/>
+		</mx:FormItem>
+		<mx:FormItem label="y">
+			<mx:NumericStepper id="ns_y" maximum="9999" value="{cbFill.selectedItem.y}" change="cbFill.selectedItem.y = ns_y.value"/>
+		</mx:FormItem>
+		<mx:FormItem label="width">
+			<mx:NumericStepper id="ns_width" maximum="9999" value="{cbFill.selectedItem.width}" change="cbFill.selectedItem.width = ns_width.value"/>
+		</mx:FormItem>
+		<mx:FormItem label="height">
+			<mx:NumericStepper id="ns_height" maximum="9999" value="{cbFill.selectedItem.height}" change="cbFill.selectedItem.height = ns_height.value"/>
+		</mx:FormItem>
+	</mx:Form>
+	</mx:VBox>
+	<LinearGradientFill id="fillOne">
+		<GradientStop color="red" ratio=".3"/>
+		<GradientStop color="white" ratio=".4"/>
+		<GradientStop color="blue" ratio=".5"/>
+	</LinearGradientFill>
+	
+	<RadialGradientFill id="fillTwo">
+		<GradientStop color="green" ratio=".3"/>
+		<GradientStop color="orange" ratio=".4"/>
+		<GradientStop color="white" ratio=".5"/>
+	</RadialGradientFill>
+	
+	<RadialGradientStroke id="strokeOne" weight="40">
+		<GradientStop color="red" ratio=".3"/>
+		<GradientStop color="white" ratio=".4"/>
+		<GradientStop color="blue" ratio=".5"/>
+	</RadialGradientStroke>
+	
+	<RadialGradientStroke id="strokeTwo" weight="40">
+		<GradientStop color="green" ratio=".3"/>
+		<GradientStop color="orange" ratio=".4"/>
+		<GradientStop color="white" ratio=".5"/>
+	</RadialGradientStroke>
+	
+</ctrl:FillDesignerCtrl>

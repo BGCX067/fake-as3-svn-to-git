@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<app:AppCtrl xmlns:mx="http://www.adobe.com/2006/mxml" 
+	creationComplete="init()" layout="absolute"
+	backgroundColor="#FFFFFF"
+	xmlns:panels="com.DeComposer.view.panels.*"
+	xmlns:app="com.DeComposer.controller.*" 
+	width="800" height="700" 
+	xmlns:utils="com.DeComposer.utils.*" 
+	xmlns:objecthandles="com.roguedevelopment.objecthandles.*" 
+	xmlns="http://www.degrafa.com/2008">
+	
+	<mx:Script>
+		<![CDATA[
+			import mx.events.PropertyChangeEvent;
+			import com.degrafa.paint.SolidFill;
+			import com.fake.utils.history.*;
+			
+			
+			
+			public function init():void
+			{
+				
+			}
+			
+			public function onMouseUp():void
+			{
+				comp.stopDrag(); 
+				circle.radius = comp.x; 
+				filling.color = uint(Math.random()*10000000);
+				circle.graphicsTarget = [comp];
+				
+				PropertyChangeAction.end('propRadius');
+				MoveAction.end("moveComp");
+				GroupAction.end("group");
+			}
+			
+			public function onMouseDown():void
+			{
+				comp.startDrag(); 
+				
+				GroupAction.add("group",[
+				MoveAction.start("moveComp", [comp]),
+				PropertyChangeAction.start('propRadius', 'radius', [circle]),
+				PropertyChangeAction.start('philly', 'color', [filling])
+				]);
+			}
+			
+			public function test(event:PropertyChangeEvent):void
+			{
+				trace(event.oldValue);
+				trace(event.newValue);
+				
+			}
+		]]>
+	</mx:Script>
+	
+	<mx:UIComponent id="comp" x="100" y="100"
+		mouseDown="onMouseDown()" 
+		mouseUp="onMouseUp()"/>
+	
+	<Circle id="circle" fill="{filling}" radius="100" graphicsTarget="{[comp]}" />
+	<SolidFill id="filling" color="blue" propertyChange="test(event)"/>
+	<mx:Button label="undo" bottom="20" left="0" click="HistoryManager.undoAction();circle.graphicsTarget = [comp]"/>
+	<mx:Button label="redo" bottom="20" left="30" click="HistoryManager.redoAction();circle.graphicsTarget = [comp]"/>
+	
+</app:AppCtrl>

@@ -1,0 +1,31 @@
+<VirtualHost *>
+	DocumentRoot	/var/workspace/fake-blog
+	ServerAlias		fake-blog.rsantos
+	ServerAlias		fake-blog
+
+	<Directory /var/workspace/fake-blog>
+		AllowOverride All
+		Options Indexes FollowSymLinks MultiViews
+		# AllowOverride None
+		Order allow,deny
+		allow from all
+	</Directory>
+	
+	ErrorLog /var/log/apache2/fake-blog_error.log
+
+	# Possible values include: debug, info, notice, warn, error, crit,
+	# alert, emerg.
+	LogLevel warn
+
+	CustomLog /var/log/apache2/fake-blog_access.log combined
+	#ServerSignature On
+
+	Alias /server "/var/workspace/fake-blog/server/app/webroot/"
+	<Directory "/var/workspace/fake-blog/server/app/webroot/">
+		AllowOverride All
+		Options Indexes FollowSymLinks MultiViews
+		Order allow,deny
+		allow from all
+	</Directory>
+
+</VirtualHost>

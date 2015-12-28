@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--/* SVN FILE: $Id: TestBed.mxml 28 2008-10-06 13:29:15Z xpoint%playerb.net $ */
+/**
+ * Description
+ *
+ * DeComposer
+ * Copyright 2008, Sean Chatman and Garrett Woodworth
+ *
+ * Commercial License
+ * Redistributions of files prohibited
+ *
+ * @filesource
+ * @copyright		Copyright 2008, Sean Chatman and Garrett Woodworth
+ * @package			DeComposer
+ * @since			2008-03-06
+ * @version			$Revision: 28 $
+ * @modifiedby		$LastChangedBy: xpoint%playerb.net $
+ * @lastmodified	$Date: 2008-10-06 06:29:15 -0700 (Mon, 06 Oct 2008) $
+ * @license			Commercial
+ */
+-->
+<app:AppCtrl xmlns:mx="http://www.adobe.com/2006/mxml" 
+	layout="absolute" creationComplete="init()" 
+	xmlns:panels="com.DeComposer.view.panels.*"
+	xmlns:app="com.DeComposer.controller.*" width="900" height="700" xmlns:pad="com.DeComposer.view.pad.*">
+	<mx:Script>
+		<![CDATA[
+			import mx.events.ListEvent;
+			import com.fake.utils.Dispatcher;
+			import com.fake.utils.ObjectMap;
+			import com.degrafa.core.IGraphicsFill;
+			import com.degrafa.paint.SolidFill;
+			import flash.utils.describeType;
+			import com.DeComposer.utils.GeoUnit;
+			import com.degrafa.geometry.Geometry;
+			import com.DeComposer.model.FileMO;
+			import com.DeComposer.utils.Parser;
+			
+			protected function init():void
+			{
+				getFromFile();
+			}
+			
+			protected function get psr():Parser
+			{
+				return Parser.instance;
+			}
+			
+			protected function getFromFile():void
+			{
+				var file:FileMO = new FileMO("/opt/local/apache2/htdocs/Decomposer/src/assets/config.txt");
+				
+				psr.parseRootXML(file.data);
+				
+				for each(var geo:Geometry in psr.geometryMap)
+				{
+					//addChild(new GeoUnit(geo));
+				}
+			}
+			
+			protected function updateLists(event:Event):void
+			{
+				geoList.dataProvider = objectMap.find(Geometry);
+				fillList.dataProvider = objectMap.find(IGraphicsFill);
+			}
+			
+			protected function listChange(event:Event):void
+			{
+				selectedFillKey = fillList.selectedItem.id
+				
+				for each(var obj:Object in mainPad.getChildren())
+				{
+					if(obj is GeoUnit && obj.selected)
+						GeoUnit(obj).fill = selectedFill;
+				}
+			}
+			
+			protected function selectChange():void
+			{
+				for each(var obj:Object in mainPad.getChildren())
+				{
+					if(obj is GeoUnit)
+						GeoUnit(obj).selected = false;
+				}
+				
+				//GeoUnit(geoList.selectedItem).selected = true;
+			}
+			
+			protected function render():void
+			{
+				txt_output.text = renderAll();
+			}
+		]]>
+	</mx:Script>
+	
+	<pad:MainPad id="mainPad" width="100%" height="100%"/>
+	<panels:GeometryPanel right="10" top="35"/>
+	<mx:Button id="btn" label="randomize fill" click="fillMap[selectedFillKey].color = uint(Math.random()*10000000)" right="10" top="10"/>
+	
+	<mx:VBox includeInLayout="false" bottom="10" left="10">
+		<mx:HBox>
+			<mx:List id="fillList" labelField="id" width="136" height="104" change="listChange(event)"/>
+			<mx:List id="geoList" labelField="id" width="136" height="104" change="selectChange()"/>
+		</mx:HBox>
+		
+		<mx:TextArea id="txt_output" width="453" height="141" />
+		<mx:Button label="render" id="btn_render" click="render()"/>
+	</mx:VBox>
+	
+</app:AppCtrl>

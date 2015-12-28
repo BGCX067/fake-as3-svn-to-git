@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?><!-- /* SVN FILE: $Id: Fakegen.mxml 140 2008-08-20 03:27:52Z gwoo.cakephp $*/-->
+<FakeApp xmlns="com.fakegen.*" xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" horizontalScrollPolicy="off" verticalScrollPolicy="off" xmlns:generators="com.fakegen.view.generators.*">
+
+	<mx:Style source="assets/styles/fakegen.css" />
+	
+	<generators:Project width="400"/>
+
+</FakeApp>

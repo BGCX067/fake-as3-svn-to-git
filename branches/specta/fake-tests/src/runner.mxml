@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" xmlns="*" xmlns:lib="lib.*">
+
+	<mx:Script>
+		<![CDATA[
+			import tests.*;
+			import tests.model.*;
+			import tests.model.datasources.*;
+			import tests.controller.*;
+			import tests.utils.*;
+			import tests.utils.actions.*;
+			import tests.utils.lso.*
+
+			import tests.view.*;
+		]]>
+	</mx:Script>
+
+	<mx:XMLList id="testCases">
+		<collection label="tests">
+			<group label="controller">
+		        <test name="{ControllerTest}"/>
+		    </group>
+		    <group label="model">
+		        <group label="datasources">
+		            <test name="{AmfDataSourceTest}"/>
+		            <test name="{ConnectionManagerTest}"/>
+		            <test name="{DataSourceTest}"/>
+		            <test name="{HttpDataSourceTest}"/>
+		        </group>
+		        <test name="{DataSetTest}"/>
+		        <test name="{ModelRegistryTest}"/>
+		        <test name="{ModelTest}"/>
+		        <test name="{ResultSetTest}"/>
+		    </group>
+		    <group label="utils">
+		        <group label="actions">
+		        	<test name="{ActionDirectorTest}" />
+		        	<test name="{AddActionTest}" />
+		        	<test name="{DelegateActionTest}" />
+		        	<test name="{GroupActionTest}" />
+		        	<test name="{MoveActionTest}" />
+		        	<test name="{PropertyChangeActionTest}" />
+		        	<test name="{RemoveActionTest}" />
+		        </group>
+		        <group label="lso">
+		        	<test name="{LSObjestTest}" />
+		        </group>
+		        <test name="{ConfigManagerTest}"/>
+		        <test name="{DescribeUtilTest}"/>
+		        <test name="{InflectorTest}"/>
+		        <test name="{RouterTest}"/>
+		        <test name="{SetUtilTest}"/>
+		        <test name="{ObjectMapTest}"/>
+		    </group>
+		    <test name="{FakeObjectTest}"/>
+		</collection>
+	</mx:XMLList>
+
+
+	<lib:FakeRunner id="testRunner" testCaseList="{testCases}" width="100%" height="100%" />
+
+</mx:Application>

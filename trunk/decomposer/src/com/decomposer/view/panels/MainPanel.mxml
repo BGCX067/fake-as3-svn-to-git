@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--/* SVN FILE: $Id: MainPanel.mxml 13 2008-08-31 01:24:44Z gwoo%s45853.gridserver.com $ */
+/**
+ * Description
+ *
+ * DeComposer
+ * Copyright 2008, Sean Chatman and Garrett Woodworth
+ *
+ * Commercial License
+ * Redistributions of files prohibited
+ *
+ * @filesource
+ * @copyright		Copyright 2008, Sean Chatman and Garrett Woodworth
+ * @package			DeComposer
+ * @subpackage		com.DeComposer.view.panels
+ * @since			2008-03-06
+ * @version			$Revision: 13 $
+ * @modifiedby		$LastChangedBy: gwoo%s45853.gridserver.com $
+ * @lastmodified	$Date: 2008-08-30 18:24:44 -0700 (Sat, 30 Aug 2008) $
+ * @license			Commercial
+ */
+-->
+<MainPanelCtrl xmlns="com.DeComposer.controller.panels.*" xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:panels="com.DeComposer.view.panels.*">
+
+	<mx:Accordion width="100%" height="100%">
+
+		<panels:GeometryPanel label="Geometry" width="100%" height="100%"/>
+
+		<panels:FillsPanel label="Fills" width="100%" height="100%"/>
+
+		<panels:StrokePanel label="Strokes" width="100%" height="100%"/>
+
+	</mx:Accordion>
+
+</MainPanelCtrl>

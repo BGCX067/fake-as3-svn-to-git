@@ -1,0 +1,54 @@
+#summary Fake version 1.0 final notes and tasks
+
+= Introduction =
+
+As Fake is being developed it is becoming more competitive with the existent Actionscript frameworks, but with a huge differential because it is aligned with a well-known PHP framework (CakePHP), but without losing extensibility and customization capabilities.
+
+= New Features =
+
+  * CakePHP controller logic
+  * ResultSet customization
+  * Datasource customization
+  * Component extension support
+  * Helper extension support
+  * Form helper with basic fields
+  * Code Generation (FakeShell)
+
+= Final Tasks =
+
+== Implementation ==
+
+|| *Done*  || *Responsible* || *Task* ||
+||         ||               || code generation (FakeShell) ||
+|| testing || rafael.costa.santos || commit basic Fields to work with Form ||
+||         || rafael.costa.santos || code clean up, review and finish code documentation ||
+|| done || rafael.costa.santos || gettext support compatible with CakePHP locale files ||
+
+== Code Testing (Testcases) ==
+
+|| *Done*  || *Responsible* || *Task* ||
+||         || rafael.costa.santos || testcases for CakeController ||
+||         || rafael.costa.santos || testcases for Component ||
+||         || rafael.costa.santos || testcases for Helper ||
+||         || rafael.costa.santos || testcases for ModelUtil ||
+||         || rafael.costa.santos || testcases for HTTPUtil ||
+||         || rafael.costa.santos || testcases for PopUpUtil ||
+||         || rafael.costa.santos || testcases for ResultSet ||
+||         || rafael.costa.santos || testcases for Form Helper ||
+||         || rafael.costa.santos || testcases for each Field (ForeignComboBox, ForeignLabel, TextInput, ...) ||
+
+== Documentation ==
+
+|| *Done*  || *Responsible* || *Task* ||
+||         || rafael.costa.santos || make Fake's side of CakePHP Blog Tutorial ||
+||         || rafael.costa.santos || finish inline code documentation ||
+
+== Deploy ==
+
+|| *Done*  || *Responsible* || *Task* ||
+||         || rafael.costa.santos || code clean up and review ||
+||         || rafael.costa.santos || migrate Fake branch fake_0.3 to trunk ||
+||         || rafael.costa.santos || create a final branch for Fake 1.0 fake_1.0 ||
+||         ||               || generate ASDOC ||
+||         ||               || update ohloh ||
+||         ||               || update google code ||
